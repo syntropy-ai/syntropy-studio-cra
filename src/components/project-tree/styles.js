@@ -5,7 +5,14 @@ const selected = css`
   background-color: #ff0000;
 `
 
+const regular = css`
+  background-color: #eee;
+  &:hover {
+    background-color: #0000ff;
+  }
+`
+
 setStyles('tree-file', {
   selected: props =>
-    props.item && props.item.selected ? selected : undefined
+    props.item && props.item.selected ? selected : regular
 })
