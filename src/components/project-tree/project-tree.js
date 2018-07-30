@@ -4,13 +4,17 @@ import Tree from 'primitives/tree'
 import File from './file'
 import Folder from './folder'
 
-const ProjectTree = ({ filetree }) => (
-  <Tree
-    itemKey={filetree.root}
-    items={filetree.files}
-    renderExpandable={Folder}
-    renderItem={File}
-  />
+const ProjectTree = ({ filetree: { root, files } }) => (
+  <div>
+    {root && (
+      <Tree
+        itemKey={root}
+        items={files}
+        renderExpandable={Folder}
+        renderItem={File}
+      />
+    )}
+  </div>
 )
 
 const enhance = connect(({ filetree }) => ({

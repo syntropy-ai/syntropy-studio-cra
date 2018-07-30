@@ -1,19 +1,12 @@
 import { createModel } from 'utils/redux-helpers'
+import {
+  getFileDetails,
+  readDirectory
+} from 'utils/file-io'
 //import client from 'utils/watcher'
 
-//const initialState = {}
 const initialState = {
-  files: {
-    'e:/somewhere': {
-      name: 'somewhere',
-      expanded: true,
-      children: ['e:/other/file']
-    },
-    'e:/other/file': {
-      name: 'file'
-    }
-  },
-  root: 'e:/somewhere',
+  files: {},
   selected: []
 }
 
@@ -21,6 +14,32 @@ const { actions, reducer } = createModel(
   'FILETREE',
   initialState,
   {
+    initDir: [
+      'dir',
+      (state, { dir }) => ({
+        ...initialState,
+        files: {
+          [dir.path]: dir
+        },
+        root: dir.path
+      })
+    ],
+    loadChildren: [
+      'key',
+      'children',
+      (state, { key, children }) => ({
+        ...state,
+        files: {
+          ...state.files,
+          ...children,
+          [key]: {
+            ...state.files[key],
+            loaded: true,
+            children: Object.keys(children)
+          }
+        }
+      })
+    ],
     toggleExpanded: [
       'key',
       (state, { key }) => ({
@@ -60,13 +79,25 @@ const { actions, reducer } = createModel(
   }
 )
 
-const toggleFolder = key => dispatch => {
+const toggleFolder = key => (dispatch, getState) => {
   dispatch(actions.toggleExpanded(key))
   dispatch(actions.select(key))
+  const dir = getState().filetree.files[key]
+  if (!dir.loaded) {
+    readDirectory(dir.path).then(files => {
+      dispatch(actions.loadChildren(key, files))
+    })
+  }
 }
 
 const selectFile = key => dispatch => {
   dispatch(actions.select(key))
 }
 
-export { reducer, toggleFolder, selectFile }
+const openDirectory = (path, autoExpand) => dispatch => {
+  getFileDetails(path).then(dir => {
+    dispatch(actions.initDir(dir))
+  })
+}
+
+export { reducer, toggleFolder, selectFile, openDirectory }

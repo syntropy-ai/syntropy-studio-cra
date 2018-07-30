@@ -20,6 +20,12 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk))
 )
 
+// TEMP: auto load an initial directory for testing
+const { openDirectory } = require('./state/filetree')
+store.dispatch(
+  openDirectory(process.env.REACT_APP_TEMP_FOLDER)
+)
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
