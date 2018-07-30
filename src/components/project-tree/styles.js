@@ -6,5 +6,6 @@ const selected = css`
 `
 
 setStyles('tree-file', {
-  selected
+  selected: props =>
+    props.item && props.item.selected ? selected : undefined
 })
