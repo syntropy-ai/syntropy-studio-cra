@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { styler } from 'styler'
+import { destyle } from 'destyle'
 import { selectFile } from 'state/filetree'
 
 const File = ({ itemKey, item, selectFile, styles }) => (
@@ -20,4 +20,4 @@ const enhance = connect(
   }
 )
 
-export default styler(enhance(File))
+export default destyle(enhance(File))
