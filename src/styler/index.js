@@ -21,14 +21,38 @@ const styleFunc = (name, props) => {
   return result
 }
 
-const styler = (TheComponent, name) => ({
-  stylerName = name,
-  ...rest
-}) => (
-  <TheComponent styles={styleFunc(name, rest)} {...rest} />
-)
+const getDisplayName = WrappedComponent => {
+  // TODO: add error here for providing anonymous stateless components as we need a name if none is provided
 
-const setStyles = (name, styleObject) => {
+  return (
+    WrappedComponent.displayName ||
+    WrappedComponent.name ||
+    'Component'
+  )
+}
+
+const styler = (TheComponent, name) => {
+  const HOCName = `Styler(${name ||
+    getDisplayName(TheComponent)})`
+
+  const HOC = ({ stylerName = HOCName, ...rest }) => (
+    <TheComponent
+      styles={styleFunc(stylerName, rest)}
+      {...rest}
+    />
+  )
+
+  HOC.displayName = HOCName
+
+  return HOC
+}
+
+const setStyles = (nameOrComponent, styleObject) => {
+  const name =
+    typeof nameOrComponent === 'string'
+      ? nameOrComponent
+      : getDisplayName(nameOrComponent)
+
   styles[name] = {
     ...styles[name],
     ...styleObject

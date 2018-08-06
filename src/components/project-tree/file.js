@@ -8,7 +8,7 @@ const File = ({ itemKey, item, selectFile, styles }) => (
     onClick={() => selectFile(itemKey)}
     className={styles.selected}
   >
-    <span>{'file-'}</span>
+    <span>{'file - '}</span>
     <span>{item.name}</span>
   </div>
 )
@@ -20,4 +20,4 @@ const enhance = connect(
   }
 )
 
-export default enhance(styler(File, 'tree-file'))
+export default styler(enhance(File))

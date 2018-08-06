@@ -1,3 +1,4 @@
+import File from './file'
 import { setStyles } from 'styler'
 import { css } from 'emotion'
 
@@ -12,7 +13,7 @@ const regular = css`
   }
 `
 
-setStyles('tree-file', {
+setStyles(File, {
   selected: props =>
     props.item && props.item.selected ? selected : regular
 })
