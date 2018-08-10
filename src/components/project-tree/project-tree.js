@@ -4,12 +4,13 @@ import Tree from 'primitives/tree'
 import File from './file'
 import Folder from './folder'
 
-const ProjectTree = ({ filetree: { root, files } }) => (
+const ProjectTree = ({ filetree: { files, meta } }) => (
   <div>
-    {root && (
+    {meta.root && (
       <Tree
-        itemKey={root}
+        itemKey={meta.root}
         items={files}
+        meta={meta}
         renderExpandable={Folder}
         renderItem={File}
       />
