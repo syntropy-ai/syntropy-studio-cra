@@ -6,6 +6,7 @@ const DEFAULT_CHILDREN_KEYNAME = 'children'
 const Tree = ({
   itemKey,
   items,
+  meta,
   renderItem: RenderItem,
   renderExpandable: RenderExpandable,
   expandedKeyname = DEFAULT_EXPANDED_KEYNAME,
@@ -19,6 +20,7 @@ const Tree = ({
         itemKey={itemKey}
         item={item}
         items={items}
+        meta={meta}
         level={level}
       />
       {item[childrenKeyname] &&
@@ -30,6 +32,7 @@ const Tree = ({
               key={i}
               itemKey={childKey}
               items={items}
+              meta={meta}
               renderItem={RenderItem}
               renderExpandable={RenderExpandable}
               expandedKeyname={expandedKeyname}
@@ -42,6 +45,7 @@ const Tree = ({
               itemKey={childKey}
               item={items[childKey]}
               items={items}
+              meta={meta}
               level={level}
             />
           )

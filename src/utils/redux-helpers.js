@@ -14,7 +14,7 @@ const createModel = (
 
   Object.keys(actionHandlers).forEach(name => {
     // setup the action constant naming
-    const constant = `${prefix}_${name}`
+    const constant = `${prefix}/${name}`
     constants[name] = constant
 
     // this is the args plus handler function given in definition

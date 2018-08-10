@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { destyle } from 'destyle'
-import { selectFile } from 'state/filetree'
+import { actions as metaActions } from 'state/filetree/meta'
 
 const File = ({ itemKey, item, selectFile, styles }) => (
   <div
@@ -16,7 +16,7 @@ const File = ({ itemKey, item, selectFile, styles }) => (
 const enhance = connect(
   null,
   {
-    selectFile
+    selectFile: metaActions.select
   }
 )
 

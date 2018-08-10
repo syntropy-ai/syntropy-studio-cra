@@ -3,8 +3,8 @@ import { setStyles } from 'destyle'
 import { css } from 'emotion'
 
 setStyles(File, {
-  selected: props => css`
-    background-color: ${props.item.selected
+  selected: ({ meta, itemKey }) => css`
+    background-color: ${itemKey === meta.selected
       ? '#ff0000'
       : '#eee'};
     &:hover {
