@@ -13,6 +13,9 @@ import registerServiceWorker from './registerServiceWorker'
 
 import './index.css'
 
+// setup electron specific window things
+import './window'
+
 const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(
