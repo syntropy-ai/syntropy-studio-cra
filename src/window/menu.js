@@ -1,5 +1,9 @@
+import { store } from 'state'
+import { openDirectory } from 'state/filetree'
+import { dirname } from 'utils/file-io'
+
 const { remote } = window.require('electron')
-const { Menu } = remote
+const { Menu, dialog } = remote
 
 const menuTemplate = [
   {
@@ -7,7 +11,27 @@ const menuTemplate = [
     submenu: [
       {
         label: 'Open',
-        click: () => console.log('clicked open')
+        click: () => {
+          const location = dialog.showOpenDialog({
+            title: 'Open Syntropy Studio Project',
+            filters: [
+              {
+                name: 'Syntropy JSON Config',
+                extensions: ['json']
+              }
+            ],
+            properties: ['openFile']
+          })
+
+          const projectPath = dirname(location[0])
+          store.dispatch(openDirectory(projectPath))
+        }
+      },
+      {
+        label: 'Save',
+        click: () => {
+          console.log('saving')
+        }
       },
       { type: 'separator' },
       { role: 'quit' }

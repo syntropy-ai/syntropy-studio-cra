@@ -1,33 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {
-  createStore,
-  applyMiddleware,
-  compose
-} from 'redux'
 import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
-import combinedReducers from './state'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
+import { store } from 'state'
+import { startWatcher } from 'utils/redux-watcher'
+
+import { openDirectory } from 'state/filetree'
 
 import './index.css'
 
 // setup electron specific window things
 import './window'
 
-const composeEnhancers =
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const store = createStore(
-  combinedReducers,
-  composeEnhancers(applyMiddleware(thunk))
-)
+// start the redux watcher for non comopnent consumers
+startWatcher(store)
 
-// TEMP: auto load an initial directory for testing
-const { openDirectory } = require('./state/filetree')
-store.dispatch(
-  openDirectory(process.env.REACT_APP_TEMP_FOLDER)
-)
+const args = window.require('electron').remote.process.argv
+const projectPath = args[2]
+store.dispatch(openDirectory(projectPath))
 
 ReactDOM.render(
   <Provider store={store}>

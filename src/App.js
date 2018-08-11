@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Layout, Panel } from 'primitives/layout'
 import Header from 'components/header'
 import ProjectTree from 'components/project-tree'
+import { BlockList, RendererList } from 'components/blocks'
 
 import './App.css'
 
@@ -19,7 +20,12 @@ class App extends Component {
                 <ProjectTree />
               </Panel>
               <Panel>
-                <div>Workspace</div>
+                <div>Layers</div>
+                <BlockList />
+              </Panel>
+              <Panel>
+                <div>Renderers</div>
+                <RendererList />
               </Panel>
             </Layout>
           </Panel>
