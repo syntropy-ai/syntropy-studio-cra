@@ -1,11 +1,11 @@
 import React from 'react'
 import { destyle } from 'destyle'
+import { CodeEditor } from 'components/editor'
 
 const Renderer = ({ id, meta = {}, code = '', styles }) => (
   <div className={styles.container}>
-    <span>
-      {id} - {code.substr(0, 50)}
-    </span>
+    <span>{id}</span>
+    <CodeEditor code={code} />
   </div>
 )
 

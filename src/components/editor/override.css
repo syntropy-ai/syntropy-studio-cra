@@ -1,0 +1,12 @@
+.CodeMirror {
+  height: auto;
+}
+
+div.CodeMirror pre,
+div.CodeMirror-linenumber,
+code {
+  font-family: 'source-code-pro', Menlo, Consolas, Monaco,
+    'Andale Mono', 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.3;
+}

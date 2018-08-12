@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { destyle } from 'destyle'
-import Renderer from './block'
+import Renderer from './renderer'
 
 const RendererList = ({
   blocks,
