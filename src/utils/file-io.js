@@ -46,4 +46,27 @@ const readDirectory = dir =>
     })
   })
 
-export { getFileDetails, readDirectory }
+const readFile = path =>
+  new Promise((resolve, reject) => {
+    fs.readFile(path, 'utf8', (err, data) => {
+      if (err) {
+        return reject(err)
+      }
+      return resolve(data)
+    })
+  })
+
+const dirname = _path => {
+  var slashFixed = _path.split('\\').join('/')
+  return path.dirname(slashFixed)
+}
+
+const joinPath = path.join
+
+export {
+  getFileDetails,
+  readDirectory,
+  readFile,
+  dirname,
+  joinPath
+}
