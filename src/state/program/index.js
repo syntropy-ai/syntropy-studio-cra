@@ -5,14 +5,14 @@ import {
   reducer as metaReducer
 } from './meta'
 import { reducer as blocksReducer } from './blocks'
-import { reducer as blockOrderReducer } from './block-order'
+import { reducer as generatorOrderReducer } from './generator-order'
 import { reducer as rendererOrderReducer } from './renderer-order'
 import {
   reducer as codeReducer,
   initialiseCode
 } from './code'
 
-const openExperiment = configPath => dispatch => {
+const openProgram = configPath => dispatch => {
   // load the config file
   readFile(configPath)
     .then(JSON.parse)
@@ -25,9 +25,9 @@ const openExperiment = configPath => dispatch => {
 const reducer = combineReducers({
   meta: metaReducer,
   blocks: blocksReducer,
-  blockOrder: blockOrderReducer,
+  generatorOrder: generatorOrderReducer,
   rendererOrder: rendererOrderReducer,
   code: codeReducer
 })
 
-export { reducer, openExperiment }
+export { reducer, openProgram }

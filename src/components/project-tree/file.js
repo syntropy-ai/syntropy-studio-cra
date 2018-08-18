@@ -2,19 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { destyle } from 'destyle'
 import { actions as metaActions } from 'state/filetree/meta'
-import { openExperiment } from 'state/experiment'
+import { openProgram } from 'state/program'
 
 const File = ({
   itemKey,
   item,
   selectFile,
-  openExperiment,
+  openProgram,
   styles
 }) => (
   <div
     onClick={() => {
       selectFile(itemKey)
-      openExperiment(item.path)
+      openProgram(item.path)
     }}
     className={styles.selected}
   >
@@ -26,7 +26,7 @@ const File = ({
 const enhance = connect(
   null,
   {
-    openExperiment,
+    openProgram,
     selectFile: metaActions.select
   }
 )

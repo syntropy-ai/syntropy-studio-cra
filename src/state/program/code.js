@@ -6,7 +6,7 @@ import { loadText } from 'utils/loaders'
 const initialState = Immutable({})
 
 const { actions, reducer } = createModel(
-  'experiment/code',
+  'program/code',
   initialState,
   {
     update: [
@@ -22,7 +22,7 @@ const { actions, reducer } = createModel(
 )
 
 const initialiseCode = () => (dispatch, getState) => {
-  const { meta, blocks = {} } = getState().experiment
+  const { meta, blocks = {} } = getState().program
   return Promise.all(
     Object.keys(blocks).map(id => {
       const block = blocks[id]

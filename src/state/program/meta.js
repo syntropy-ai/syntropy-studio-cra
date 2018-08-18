@@ -5,7 +5,7 @@ import { dirname } from 'utils/file-io'
 const initialState = Immutable({})
 
 const { actions, reducer, constants } = createModel(
-  'experiment/meta',
+  'program/meta',
   initialState,
   {
     loadConfig: [
@@ -13,6 +13,7 @@ const { actions, reducer, constants } = createModel(
       'path',
       (state, { config, path }) =>
         Immutable({
+          id: config.id,
           basePath: dirname(path)
         })
     ]

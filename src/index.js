@@ -8,10 +8,14 @@ import { startWatcher } from 'utils/redux-watcher'
 
 import { openDirectory } from 'state/filetree'
 
-import './index.css'
-
 // setup electron specific window things
 import './window'
+// setup the engine bridge
+import './engine-bridge'
+
+import './index.css'
+
+window.ELECTRON_DISABLE_SECURITY_WARNINGS = true
 
 // start the redux watcher for non comopnent consumers
 startWatcher(store)

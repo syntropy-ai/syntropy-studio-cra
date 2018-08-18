@@ -23,11 +23,7 @@ const RendererList = ({
 
 const enhance = connect(
   ({
-    experiment: {
-      blocks = {},
-      rendererOrder = [],
-      code = {}
-    }
+    program: { blocks = {}, rendererOrder = [], code = {} }
   }) => ({
     blocks,
     rendererOrder,

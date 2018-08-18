@@ -3,14 +3,14 @@ import { connect } from 'react-redux'
 import { destyle } from 'destyle'
 import Block from './block'
 
-const BlockList = ({
+const GeneratorList = ({
   blocks,
-  blockOrder,
+  generatorOrder,
   code,
   styles
 }) => (
   <div className={styles.listContainer}>
-    {blockOrder.map(id => (
+    {generatorOrder.map(id => (
       <Block
         key={id}
         id={id}
@@ -23,12 +23,12 @@ const BlockList = ({
 
 const enhance = connect(
   ({
-    experiment: { blocks = {}, blockOrder = [], code = {} }
+    program: { blocks = {}, generatorOrder = [], code = {} }
   }) => ({
     blocks,
-    blockOrder,
+    generatorOrder,
     code
   })
 )
 
-export default destyle(enhance(BlockList))
+export default destyle(enhance(GeneratorList))

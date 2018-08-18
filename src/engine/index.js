@@ -1,4 +1,31 @@
-const GeneratorFunction = Object.getPrototypeOf(
+const reset = () => {}
+
+const getMeta = () => ({})
+
+const addBlock = () => {}
+
+const updateBlock = () => {}
+
+const removeBlock = () => {}
+
+const updateCode = () => {}
+
+const updateGeneratorOrder = () => {}
+
+const updateRendererOrder = () => {}
+
+export {
+  reset,
+  getMeta,
+  addBlock,
+  updateBlock,
+  removeBlock,
+  updateCode,
+  updateGeneratorOrder,
+  updateRendererOrder
+}
+
+/*const GeneratorFunction = Object.getPrototypeOf(
   function*() {}
 ).constructor
 
@@ -44,3 +71,4 @@ const loadConfig = (config, loaders) => {
 }
 
 export { loadConfig }
+*/

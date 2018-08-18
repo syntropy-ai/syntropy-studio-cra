@@ -11,8 +11,10 @@ const defaultComparer = (prev, next) => prev === next
 
 const processSubscription = (sub, state) => {
   const currentValue = get(state, sub.path)
-  sub.fn(sub.lastValue, currentValue)
-  sub.lastValue = currentValue
+  if (!sub.comparer(sub.lastValue, currentValue)) {
+    sub.fn(sub.lastValue, currentValue, state)
+    sub.lastValue = currentValue
+  }
 }
 
 const initialiseSubscription = (sub, state) => {
