@@ -2,11 +2,11 @@ import Immutable from 'seamless-immutable'
 import { createModel } from 'utils/redux-helpers'
 import { constants as metaConstants } from './meta'
 
-const initialState = Immutable([])
+const initialState = []
 
 const { actions, reducer } = createModel(
   'program/generatorOrder',
-  initialState,
+  Immutable(initialState),
   {
     update: [
       'order',
@@ -14,6 +14,7 @@ const { actions, reducer } = createModel(
     ]
   },
   {
+    [metaConstants.reset]: state => Immutable(initialState),
     [metaConstants.loadConfig]: (state, { config }) =>
       Immutable(config.generatorOrder)
   }

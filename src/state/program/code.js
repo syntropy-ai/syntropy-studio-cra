@@ -3,11 +3,11 @@ import { createModel } from 'utils/redux-helpers'
 import { constants as metaConstants } from './meta'
 import { loadText } from 'utils/loaders'
 
-const initialState = Immutable({})
+const initialState = {}
 
 const { actions, reducer } = createModel(
   'program/code',
-  initialState,
+  Immutable(initialState),
   {
     update: [
       'id',
@@ -16,8 +16,7 @@ const { actions, reducer } = createModel(
     ]
   },
   {
-    [metaConstants.loadConfig]: (state, { config }) =>
-      initialState
+    [metaConstants.reset]: state => Immutable(initialState)
   }
 )
 

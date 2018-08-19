@@ -1,23 +1,17 @@
 import Immutable from 'seamless-immutable'
 import { createModel } from 'utils/redux-helpers'
-import { dirname } from 'utils/file-io'
 
-const initialState = {}
+const initialState = {
+  running: false
+}
 
 const { actions, reducer, constants } = createModel(
-  'program/meta',
+  'program/control',
   Immutable(initialState),
   {
     reset: state => Immutable(initialState),
-    loadConfig: [
-      'config',
-      'path',
-      (state, { config, path }) =>
-        Immutable({
-          id: config.id,
-          basePath: dirname(path)
-        })
-    ]
+    playPause: state =>
+      state.merge({ running: !state.running })
   }
 )
 

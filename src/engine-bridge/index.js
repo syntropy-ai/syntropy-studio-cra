@@ -1,34 +1,48 @@
 /**
  * Bridge between engine and UI
  */
-import * as Engine from 'engine'
-import { subscribe } from 'utils/redux-watcher'
-import { forOwn } from 'lodash'
 import objDiff from 'shallow-diff'
+import { createProgram, createBlock } from 'engine'
+import { subscribe } from 'utils/redux-watcher'
+
+// the program used throughout the life of the application
+const program = createProgram()
+
+subscribe('program.meta.id', (prev, cur) => {
+  program.reset(cur)
+})
 
 subscribe('program.blocks', (prev = {}, cur, state) => {
-  // check if there is a change to the engine id
-  const { meta } = state.program
-  if (Engine.getMeta().id !== meta.id) {
-    Engine.reset(meta)
-    forOwn(cur, (block, k) => Engine.addBlock(k, block))
-  } else {
-    const { added, updated, deleted } = objDiff(cur, prev)
-    added.forEach(k => Engine.addBlock(k, cur[k]))
-    updated.forEach(k => Engine.updateBlock(k, cur[k]))
-    deleted.forEach(k => Engine.removeBlock(k, cur[k]))
-  }
+  const { added, updated, deleted } = objDiff(prev, cur)
+  added.forEach(k => {
+    const block = createBlock(k, cur[k])
+    program.addBlock(k, block)
+  })
+  updated.forEach(k => program.getBlock(k).update(cur[k]))
+  deleted.forEach(k => program.removeBlock(k))
 })
 
 subscribe('program.code', (prev = {}, cur) => {
-  const { updated } = objDiff(cur, prev)
-  updated.forEach(k => Engine.updateCode(k, cur[k]))
+  const { updated } = objDiff(prev, cur)
+  updated.forEach(k =>
+    program.getBlock(k).updateCode(cur[k])
+  )
 })
 
 subscribe('program.generatorOrder', (prev, cur) => {
-  Engine.updateGeneratorOrder(cur)
+  program.updateGeneratorOrder(cur)
 })
 
 subscribe('program.rendererOrder', (prev, cur) => {
-  Engine.updateRendererOrder(cur)
+  program.updateRendererOrder(cur)
 })
+
+subscribe('program.control.running', (prev, cur) => {
+  if (cur) {
+    program.run()
+  } else {
+    program.pause()
+  }
+})
+
+export { program }

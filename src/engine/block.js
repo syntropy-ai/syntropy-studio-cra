@@ -1,10 +1,11 @@
-const testFunc = () => {
-  console.log(this.test)
-}
+const createBlock = (key, meta) => ({
+  key,
+  meta,
+  state: {},
 
-const createBlock = meta => ({
-  test: 'value',
-  func: testFunc
+  func() {
+    console.log(this.test)
+  }
 })
 
 export { createBlock }

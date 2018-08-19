@@ -14,9 +14,9 @@ function createWindow() {
     height: 768
   })
 
-  mainWindow.loadURL('http://localhost:3000')
-
   mainWindow.maximize()
+
+  mainWindow.loadURL('http://localhost:3000')
 
   mainWindow.on('closes', () => (mainWindow = null))
 }
