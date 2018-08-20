@@ -29,12 +29,8 @@ subscribe('program.code', (prev = {}, cur) => {
   )
 })
 
-subscribe('program.generatorOrder', (prev, cur) => {
-  program.updateGeneratorOrder(cur)
-})
-
-subscribe('program.rendererOrder', (prev, cur) => {
-  program.updateRendererOrder(cur)
+subscribe('program.blockOrder', (prev, cur) => {
+  program.updateBlockOrder(cur)
 })
 
 subscribe('program.control.running', (prev, cur) => {

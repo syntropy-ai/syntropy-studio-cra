@@ -27,12 +27,8 @@ const createProgram = meta => ({
     delete this.blocks[key]
   },
 
-  updateGeneratorOrder(order) {
+  updateBlockOrder(order) {
     this.generatorOrder = order
-  },
-
-  updateRendererOrder(order) {
-    this.rendererOrder = order
   },
 
   run() {

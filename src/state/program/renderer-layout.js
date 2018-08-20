@@ -5,18 +5,18 @@ import { constants as metaConstants } from './meta'
 const initialState = []
 
 const { actions, reducer } = createModel(
-  'program/rendererOrder',
+  'program/rendererLayout',
   Immutable(initialState),
   {
     update: [
-      'order',
-      (state, { order }) => Immutable(order)
+      'layout',
+      (state, { layout }) => Immutable(layout)
     ]
   },
   {
     [metaConstants.reset]: state => Immutable(initialState),
     [metaConstants.loadConfig]: (state, { config }) =>
-      Immutable(config.rendererOrder)
+      Immutable(config.rendererLayout)
   }
 )
 

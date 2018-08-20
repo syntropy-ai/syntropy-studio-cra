@@ -5,12 +5,12 @@ import Block from './block'
 
 const GeneratorList = ({
   blocks,
-  generatorOrder,
+  blockOrder,
   code,
   styles
 }) => (
   <div className={styles.listContainer}>
-    {generatorOrder.map(id => (
+    {blockOrder.map(id => (
       <Block
         key={id}
         id={id}
@@ -23,10 +23,10 @@ const GeneratorList = ({
 
 const enhance = connect(
   ({
-    program: { blocks = {}, generatorOrder = [], code = {} }
+    program: { blocks = {}, blockOrder = [], code = {} }
   }) => ({
     blocks,
-    generatorOrder,
+    blockOrder,
     code
   })
 )

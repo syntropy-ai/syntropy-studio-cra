@@ -5,12 +5,12 @@ import Renderer from './renderer'
 
 const RendererList = ({
   blocks,
-  rendererOrder,
+  rendererLayout,
   code,
   styles
 }) => (
   <div className={styles.listContainer}>
-    {rendererOrder.map(id => (
+    {rendererLayout.map(id => (
       <Renderer
         key={id}
         id={id}
@@ -23,10 +23,10 @@ const RendererList = ({
 
 const enhance = connect(
   ({
-    program: { blocks = {}, rendererOrder = [], code = {} }
+    program: { blocks = {}, rendererLayout = [], code = {} }
   }) => ({
     blocks,
-    rendererOrder,
+    rendererLayout,
     code
   })
 )

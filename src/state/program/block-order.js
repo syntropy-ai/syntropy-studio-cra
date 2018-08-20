@@ -5,7 +5,7 @@ import { constants as metaConstants } from './meta'
 const initialState = []
 
 const { actions, reducer } = createModel(
-  'program/generatorOrder',
+  'program/blockOrder',
   Immutable(initialState),
   {
     update: [
@@ -16,7 +16,7 @@ const { actions, reducer } = createModel(
   {
     [metaConstants.reset]: state => Immutable(initialState),
     [metaConstants.loadConfig]: (state, { config }) =>
-      Immutable(config.generatorOrder)
+      Immutable(config.blockOrder)
   }
 )
 

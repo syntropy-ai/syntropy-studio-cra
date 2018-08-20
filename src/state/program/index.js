@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import { readFile } from 'utils/file-io'
 import { reducer as blocksReducer } from './blocks'
-import { reducer as generatorOrderReducer } from './generator-order'
-import { reducer as rendererOrderReducer } from './renderer-order'
+import { reducer as blockOrderReducer } from './block-order'
+import { reducer as rendererLayoutReducer } from './renderer-layout'
 import { reducer as controlReducer } from './control'
 import {
   reducer as codeReducer,
@@ -27,8 +27,8 @@ const openProgram = configPath => dispatch => {
 const reducer = combineReducers({
   meta: metaReducer,
   blocks: blocksReducer,
-  generatorOrder: generatorOrderReducer,
-  rendererOrder: rendererOrderReducer,
+  blockOrder: blockOrderReducer,
+  rendererLayout: rendererLayoutReducer,
   code: codeReducer,
   control: controlReducer
 })
