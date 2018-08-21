@@ -1,11 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import PlayBoxOutlineIcon from 'mdi-react/PlayBoxOutlineIcon'
+import { destyle } from 'destyle'
+import { PlayIcon, StopIcon, SkipNextIcon } from 'mdi-react'
 import { actions as controlActions } from 'state/program/control'
 
-const Header = ({ playPause }) => (
-  <div>
-    <PlayBoxOutlineIcon onClick={playPause} />
+const Header = ({ playPause, styles }) => (
+  <div className={styles.header}>
+    <div className={styles.playbackControls}>
+      <StopIcon />
+      <PlayIcon onClick={playPause} />
+      <SkipNextIcon />
+    </div>
   </div>
 )
 
@@ -16,4 +21,4 @@ const enhance = connect(
   }
 )
 
-export default enhance(Header)
+export default destyle(enhance(Header), 'Header')

@@ -45,8 +45,11 @@
     url('./fonts/ibm-plex-sans-condensed-v3-latin-700.woff2')
       format('woff2');
 }
+
+html,
 body {
   margin: 0;
   padding: 0;
   font-family: 'IBM Plex Sans Condensed', sans-serif;
+  background-color: #0f1618;
 }

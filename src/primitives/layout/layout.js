@@ -10,4 +10,4 @@ const Layout = ({ element, styles, ...rest }) => {
   )
 }
 
-export default destyle(Layout)
+export default destyle(Layout, 'Layout')

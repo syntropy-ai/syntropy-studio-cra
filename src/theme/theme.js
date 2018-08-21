@@ -11,9 +11,14 @@ export default {
     bgColour: colour.darkestGrey,
     textColour: colour.textSecondaryOnDark
   },
+  iconButton: {
+    fillColour: colour.textSecondaryOnDark,
+    hoverFillColour: colour.textPrimaryOnDark
+  },
   header: {
     bgColour: colour.darkestGrey,
-    borderColour: colour.borderOnDark
+    borderColour: colour.borderOnDark,
+    height: 36
   },
   sidebar: {
     bgColour: colour.darkestGrey,
