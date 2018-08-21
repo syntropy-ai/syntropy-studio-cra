@@ -15,7 +15,7 @@ function createWindow() {
   mainWindow.on('closes', () => (mainWindow = null))
 
   // clear the menu to let the render thread manage it
-  Menu.setApplicationMenu(null)
+  //Menu.setApplicationMenu(null)
 }
 
 app.on('ready', createWindow)

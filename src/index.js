@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import App from './App'
+import App from './components/app/app'
 import registerServiceWorker from './registerServiceWorker'
 import { store } from 'state'
 import { startWatcher } from 'utils/redux-watcher'
 
 import { openDirectory } from 'state/filetree'
 
-import './index.css'
+import './theme'
 
 // setup electron specific window things
 import './window'
