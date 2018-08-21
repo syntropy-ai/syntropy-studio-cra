@@ -28,7 +28,7 @@ const createProgram = meta => ({
   },
 
   updateBlockOrder(order) {
-    this.generatorOrder = order
+    this.blockOrder = order
   },
 
   run() {
