@@ -2,17 +2,19 @@ import Immutable from 'seamless-immutable'
 import { createModel } from 'utils/redux-helpers'
 import { dirname } from 'utils/file-io'
 
-const initialState = Immutable({})
+const initialState = {}
 
 const { actions, reducer, constants } = createModel(
-  'experiment/meta',
-  initialState,
+  'program/meta',
+  Immutable(initialState),
   {
+    reset: state => Immutable(initialState),
     loadConfig: [
       'config',
       'path',
       (state, { config, path }) =>
         Immutable({
+          id: config.id,
           basePath: dirname(path)
         })
     ]

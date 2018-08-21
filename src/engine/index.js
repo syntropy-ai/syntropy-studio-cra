@@ -1,4 +1,8 @@
-const GeneratorFunction = Object.getPrototypeOf(
+import { createProgram } from './program'
+import { createBlock } from './block'
+
+export { createProgram, createBlock }
+/*const GeneratorFunction = Object.getPrototypeOf(
   function*() {}
 ).constructor
 
@@ -44,3 +48,4 @@ const loadConfig = (config, loaders) => {
 }
 
 export { loadConfig }
+*/

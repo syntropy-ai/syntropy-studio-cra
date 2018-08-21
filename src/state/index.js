@@ -6,11 +6,11 @@ import {
 } from 'redux'
 import thunk from 'redux-thunk'
 import { reducer as filetreeReducer } from './filetree'
-import { reducer as experimentReducer } from './experiment'
+import { reducer as programReducer } from './program'
 
 const combinedReducers = combineReducers({
   filetree: filetreeReducer,
-  experiment: experimentReducer
+  program: programReducer
 })
 
 const composeEnhancers =

@@ -3,11 +3,11 @@ import { createModel } from 'utils/redux-helpers'
 import { constants as metaConstants } from './meta'
 import { loadText } from 'utils/loaders'
 
-const initialState = Immutable({})
+const initialState = {}
 
 const { actions, reducer } = createModel(
-  'experiment/code',
-  initialState,
+  'program/code',
+  Immutable(initialState),
   {
     update: [
       'id',
@@ -16,13 +16,12 @@ const { actions, reducer } = createModel(
     ]
   },
   {
-    [metaConstants.loadConfig]: (state, { config }) =>
-      initialState
+    [metaConstants.reset]: state => Immutable(initialState)
   }
 )
 
 const initialiseCode = () => (dispatch, getState) => {
-  const { meta, blocks = {} } = getState().experiment
+  const { meta, blocks = {} } = getState().program
   return Promise.all(
     Object.keys(blocks).map(id => {
       const block = blocks[id]

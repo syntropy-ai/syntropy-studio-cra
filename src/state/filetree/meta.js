@@ -1,10 +1,14 @@
 import Immutable from 'seamless-immutable'
 import { createModel } from 'utils/redux-helpers'
 
+/*
 const initialState = Immutable({
   selected: null,
   root: null
 })
+*/
+
+const initialState = Immutable({})
 
 const { constants, actions, reducer } = createModel(
   'filetree/meta',

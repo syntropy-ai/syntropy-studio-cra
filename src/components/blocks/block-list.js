@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { destyle } from 'destyle'
 import Block from './block'
 
-const BlockList = ({
+const GeneratorList = ({
   blocks,
   blockOrder,
   code,
@@ -23,7 +23,7 @@ const BlockList = ({
 
 const enhance = connect(
   ({
-    experiment: { blocks = {}, blockOrder = [], code = {} }
+    program: { blocks = {}, blockOrder = [], code = {} }
   }) => ({
     blocks,
     blockOrder,
@@ -31,4 +31,4 @@ const enhance = connect(
   })
 )
 
-export default destyle(enhance(BlockList))
+export default destyle(enhance(GeneratorList))
