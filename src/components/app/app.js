@@ -1,22 +1,24 @@
 import React, { Component } from 'react'
 import { Layout, Panel } from 'primitives/layout'
+import { destyle } from 'destyle'
 import Header from 'components/header'
 import ProjectTree from 'components/project-tree'
 import { BlockList, RendererList } from 'components/blocks'
 
-import './App.css'
-
 class App extends Component {
   render() {
+    const { styles } = this.props
     return (
-      <div className="App">
+      <div className={styles.app}>
         <Layout direction="column">
-          <Panel>
-            <Header />
+          <Panel order="0">
+            <div className={styles.header}>
+              <Header />
+            </div>
           </Panel>
           <Panel>
             <Layout direction="row">
-              <Panel>
+              <Panel destyleName="Sidebar">
                 <ProjectTree />
               </Panel>
               <Panel>
@@ -35,4 +37,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default destyle(App, 'App')

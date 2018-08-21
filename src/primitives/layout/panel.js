@@ -10,4 +10,4 @@ const Panel = ({ element, styles, ...rest }) => {
   )
 }
 
-export default destyle(Panel)
+export default destyle(Panel, 'Panel')

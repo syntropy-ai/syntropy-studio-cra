@@ -1,4 +1,3 @@
-import { setStyles } from 'destyle'
 import { css } from 'emotion'
 
 const layout = props => css`
@@ -11,11 +10,11 @@ const layout = props => css`
 
 const panel = props => css`
   order: ${props.order};
-  flex-grow: ${props.grow};
+  flex-grow: ${props.grow || 1};
   flex-shrink: ${props.shrink};
   flex: ${props.flex};
   align-self: ${props.alignSelf};
 `
 
-setStyles('Layout', { layout })
-setStyles('Panel', { panel })
+export const layoutStyles = { layout }
+export const panelStyles = { panel }
