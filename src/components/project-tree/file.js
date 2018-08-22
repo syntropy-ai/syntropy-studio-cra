@@ -10,7 +10,8 @@ const File = ({
   item,
   selectFile,
   openProgram,
-  styles
+  styles,
+  level
 }) => {
   const isConfig =
     item.name.substr(item.name.length - 5) === '.json'

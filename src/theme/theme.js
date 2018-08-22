@@ -1,4 +1,5 @@
 const colour = {
+  primaryOnDark: '#188da4',
   darkGrey: '#191f21',
   darkestGrey: '#0f1618',
   textPrimaryOnDark: '#c4cecf',
@@ -14,9 +15,14 @@ const type = {
   monoFontFamily: '"IBM Plex Mono", monospace'
 }
 
+const spacing = {
+  paddingMd: 12
+}
+
 export default {
   colour,
   type,
+  spacing,
   app: {
     bgColour: colour.darkestGrey,
     textColour: colour.textSecondaryOnDark
@@ -33,6 +39,9 @@ export default {
   sidebar: {
     bgColour: colour.darkestGrey,
     borderColour: colour.borderOnDark
+  },
+  footer: {
+    height: 24
   },
   tabs: {
     bgColour: colour.darkestGrey,

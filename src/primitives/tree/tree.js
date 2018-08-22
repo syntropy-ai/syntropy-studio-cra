@@ -46,7 +46,7 @@ const Tree = ({
               item={items[childKey]}
               items={items}
               meta={meta}
-              level={level}
+              level={level + 1}
             />
           )
         })}

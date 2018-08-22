@@ -1,5 +1,6 @@
 import './index.css'
-import { setStyles } from 'destyle'
+import { addStyles, setConcatenator } from 'destyle'
+import { cx } from 'emotion'
 
 import appStyles from './components/app'
 import {
@@ -10,13 +11,17 @@ import {
 import headerStyles from './components/header'
 import sidebarStyles from './components/sidebar'
 import filetreeStyles from './components/file-tree'
+import blockStyles from './components/blocks'
 
-setStyles('App', appStyles)
-setStyles('Layout', layoutStyles)
-setStyles('Panel', panelStyles)
-setStyles('SidebarPanel', sidebarPanelStyles)
-setStyles('Header', headerStyles)
-setStyles('Sidebar', sidebarStyles)
-setStyles('FileTree', filetreeStyles)
+setConcatenator(values => cx(values))
+
+addStyles('AppLayout', appStyles)
+addStyles('Layout', layoutStyles)
+addStyles('Panel', panelStyles)
+addStyles('SidebarPanel', sidebarPanelStyles)
+addStyles('Header', headerStyles)
+addStyles('Sidebar', sidebarStyles)
+addStyles('FileTree', filetreeStyles)
+addStyles('Block', blockStyles)
 
 export default {}

@@ -14,7 +14,7 @@ const Folder = ({
     className={styles.folder}
     onClick={() => toggleFolder(itemKey)}
   >
-    <FolderIcon />
+    {item.expanded ? <FolderOpenIcon /> : <FolderIcon />}
     <span>{item.name}</span>
   </div>
 )

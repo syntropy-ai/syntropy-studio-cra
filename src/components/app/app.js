@@ -1,40 +1,29 @@
 import React, { Component } from 'react'
-import { Layout, Panel } from 'primitives/layout'
 import { destyle } from 'destyle'
 import Header from 'components/header'
 import Sidebar from 'components/sidebar'
-import { BlockList, RendererList } from 'components/blocks'
+import WorkSpace from 'components/workspace'
 
 class App extends Component {
   render() {
     const { styles } = this.props
     return (
-      <div className={styles.app}>
-        <Layout direction="column">
-          <Panel order="0">
-            <div className={styles.header}>
-              <Header />
-            </div>
-          </Panel>
-          <Panel>
-            <Layout direction="row">
-              <Panel destyleName="SidebarPanel">
-                <Sidebar />
-              </Panel>
-              <Panel>
-                <div>Layers</div>
-                <BlockList />
-              </Panel>
-              <Panel>
-                <div>Renderers</div>
-                <RendererList />
-              </Panel>
-            </Layout>
-          </Panel>
-        </Layout>
+      <div className={styles.root}>
+        <div className={styles.header}>
+          <Header />
+        </div>
+        <div className={styles.sidebar}>
+          <Sidebar />
+        </div>
+        <div className={styles.main}>
+          <WorkSpace />
+        </div>
+        <div className={styles.footer}>
+          <div>Status bar</div>
+        </div>
       </div>
     )
   }
 }
 
-export default destyle(App, 'App')
+export default destyle(App, 'AppLayout')
