@@ -31,4 +31,4 @@ const enhance = connect(
   }
 )
 
-export default destyle(enhance(File))
+export default destyle(enhance(File), 'filetree-file')

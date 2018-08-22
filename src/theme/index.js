@@ -1,5 +1,6 @@
 import './index.css'
-import { setStyles } from 'destyle'
+import { setStyles, setConcatenator } from 'destyle'
+import { cx } from 'emotion'
 
 import appStyles from './components/app'
 import {
@@ -8,6 +9,8 @@ import {
 } from './components/layout'
 import headerStyles from './components/header'
 import sidebarStyles from './components/sidebar'
+
+setConcatenator(values => cx(values))
 
 setStyles('App', appStyles)
 setStyles('Layout', layoutStyles)

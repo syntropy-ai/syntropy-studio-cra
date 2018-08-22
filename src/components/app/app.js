@@ -18,7 +18,7 @@ class App extends Component {
           </Panel>
           <Panel>
             <Layout direction="row">
-              <Panel destyleName="Sidebar">
+              <Panel destyleNames="Sidebar">
                 <ProjectTree />
               </Panel>
               <Panel>
