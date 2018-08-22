@@ -12,6 +12,7 @@ import headerStyles from './components/header'
 import sidebarStyles from './components/sidebar'
 import filetreeStyles from './components/file-tree'
 import blockStyles from './components/blocks'
+import workspaceStyles from './components/workspace'
 
 setConcatenator(values => cx(values))
 
@@ -23,5 +24,7 @@ addStyles('Header', headerStyles)
 addStyles('Sidebar', sidebarStyles)
 addStyles('FileTree', filetreeStyles)
 addStyles('Block', blockStyles)
+addStyles('Renderer', blockStyles)
+addStyles('WorkSpace', workspaceStyles)
 
 export default {}

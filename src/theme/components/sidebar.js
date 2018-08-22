@@ -8,13 +8,14 @@ const sidebarItem = props => css`
 `
 
 const sidebarItemHeader = props => css`
-  padding: 8px 12px;
+  padding: ${theme.spacing.paddingSm}px
+    ${theme.spacing.paddingMd}px 0;
 `
 
 const sidebarItemTitle = props => css`
   margin: 0;
   color: ${theme.colour.textPrimaryOnDark};
-  font-size: ${theme.type.baseFontSize - 1}px;
+  font-size: ${theme.type.baseFontSize - 2}px;
   font-weight: 700;
   line-height: ${theme.type.baseLineHeight};
   text-transform: uppercase;

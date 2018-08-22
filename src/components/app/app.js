@@ -16,7 +16,7 @@ class App extends Component {
           <Sidebar />
         </div>
         <div className={styles.main}>
-          <WorkSpace />
+          <WorkSpace numPanes={2} direction="column" />
         </div>
         <div className={styles.footer}>
           <div>Status bar</div>

@@ -16,7 +16,8 @@ const type = {
 }
 
 const spacing = {
-  paddingMd: 12
+  paddingSm: 4,
+  paddingMd: 8
 }
 
 export default {

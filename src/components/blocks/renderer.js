@@ -1,13 +1,15 @@
 import React from 'react'
 import { destyle } from 'destyle'
-import { CodeEditor } from 'components/editor'
 
 const Renderer = ({ id, meta = {}, code = '', styles }) => (
-  <div className={styles.container}>
-    <span>{id}</span>
-    <div ref={this.renderNode} />
-    <CodeEditor code={code} />
+  <div className={styles.root}>
+    <div className={styles.header}>
+      <h3 className={styles.title}>{id}</h3>
+    </div>
+    <div className={styles.body}>
+      <div ref={this.renderNode} />
+    </div>
   </div>
 )
 
-export default destyle(Renderer)
+export default destyle(Renderer, 'Renderer')
