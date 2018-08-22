@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Layout, Panel } from 'primitives/layout'
 import { destyle } from 'destyle'
 import Header from 'components/header'
-import ProjectTree from 'components/project-tree'
+import Sidebar from 'components/sidebar'
 import { BlockList, RendererList } from 'components/blocks'
 
 class App extends Component {
@@ -18,8 +18,8 @@ class App extends Component {
           </Panel>
           <Panel>
             <Layout direction="row">
-              <Panel destyleName="Sidebar">
-                <ProjectTree />
+              <Panel destyleName="SidebarPanel">
+                <Sidebar />
               </Panel>
               <Panel>
                 <div>Layers</div>

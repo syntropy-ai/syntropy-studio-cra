@@ -1,10 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { destyle } from 'destyle'
 import { toggleFolder } from 'state/filetree/index'
+import { FolderIcon, FolderOpenIcon } from 'mdi-react'
 
-const Folder = ({ itemKey, item, toggleFolder }) => (
-  <div onClick={() => toggleFolder(itemKey)}>
-    <span>{'folder-'}</span>
+const Folder = ({
+  styles,
+  itemKey,
+  item,
+  toggleFolder
+}) => (
+  <div
+    className={styles.folder}
+    onClick={() => toggleFolder(itemKey)}
+  >
+    <FolderIcon />
     <span>{item.name}</span>
   </div>
 )
@@ -16,4 +26,4 @@ const enhance = connect(
   }
 )
 
-export default enhance(Folder)
+export default destyle(enhance(Folder), 'FileTree')

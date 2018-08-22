@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { destyle } from 'destyle'
 import { actions as metaActions } from 'state/filetree/meta'
 import { openProgram } from 'state/program'
+import { FileIcon, SettingsIcon } from 'mdi-react'
 
 const File = ({
   itemKey,
@@ -10,18 +11,22 @@ const File = ({
   selectFile,
   openProgram,
   styles
-}) => (
-  <div
-    onClick={() => {
-      selectFile(itemKey)
-      openProgram(item.path)
-    }}
-    className={styles.selected}
-  >
-    <span>{'file - '}</span>
-    <span>{item.name}</span>
-  </div>
-)
+}) => {
+  const isConfig =
+    item.name.substr(item.name.length - 5) === '.json'
+  return (
+    <div
+      onClick={() => {
+        selectFile(itemKey)
+        openProgram(item.path)
+      }}
+      className={styles.file}
+    >
+      {isConfig ? <SettingsIcon /> : <FileIcon />}
+      <span>{item.name}</span>
+    </div>
+  )
+}
 
 const enhance = connect(
   null,
@@ -31,4 +36,4 @@ const enhance = connect(
   }
 )
 
-export default destyle(enhance(File))
+export default destyle(enhance(File), 'FileTree')

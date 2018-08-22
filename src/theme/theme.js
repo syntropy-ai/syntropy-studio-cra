@@ -6,7 +6,17 @@ const colour = {
   borderOnDark: '#2e3233'
 }
 
+const type = {
+  baseFontSize: 15,
+  baseLineHeight: 1.5,
+  headingLineHeight: 1.2,
+  baseFontFamily: '"IBM Plex Sans Condensed", sans-serif',
+  monoFontFamily: '"IBM Plex Mono", monospace'
+}
+
 export default {
+  colour,
+  type,
   app: {
     bgColour: colour.darkestGrey,
     textColour: colour.textSecondaryOnDark

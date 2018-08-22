@@ -1,11 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { destyle } from 'destyle'
 import Tree from 'primitives/tree'
 import File from './file'
 import Folder from './folder'
 
-const ProjectTree = ({ filetree: { files, meta } }) => (
-  <div>
+const ProjectTree = ({
+  styles,
+  filetree: { files, meta }
+}) => (
+  <div className={styles.filetree}>
     {meta.root && (
       <Tree
         itemKey={meta.root}
@@ -22,4 +26,4 @@ const enhance = connect(({ filetree }) => ({
   filetree
 }))
 
-export default enhance(ProjectTree)
+export default destyle(enhance(ProjectTree), 'FileTree')
